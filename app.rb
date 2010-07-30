@@ -2,6 +2,8 @@ require 'rdiscount'
 require 'innate'
 require 'find'
 require 'nokogiri'
+require 'date'
+require 'time'
 
 module Into
   extend Innate::Traited
@@ -11,14 +13,14 @@ module Into
     map '/'
 
     layout('default'){|name, wish| wish != "atom" }
-    provide :html, engine: :Etanni
-    provide :atom, engine: :Etanni, type: 'application/xml'
+    provide :html, :engine => :Etanni
+    provide :atom, :engine => :Etanni, :type => 'application/xml'
 
     def index(slug = nil)
       if article = Article[slug]
-        render_view(:article, article: article)
+        render_view(:article, :article => article)
       else
-        render_view(:articles, articles: Article.first(10))
+        render_view(:articles, :articles => Article.first(10))
       end
     end
   end
@@ -83,11 +85,11 @@ module Into
     end
 
     def date
-      Time.strptime(self[:date], '%Y-%m-%d')
+      Date.strptime(self[:date], '%Y-%m-%d')
     end
 
     def datetime
-      date.strftime('%Y-%m-%d')
+      Date.strptime(self[:date], '%Y-%m-%d')
     end
 
     def showtime

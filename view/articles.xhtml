@@ -1,5 +1,5 @@
 <section class="articles">
   <?r @articles.each do |article| ?>
-    #{render_view(:article, article: article)}
+    #{render_view(:article, :article => article)}
   <?r end ?>
 </section>
