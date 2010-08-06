@@ -3,22 +3,47 @@
   <head> 
     <meta charset="utf-8" />
     <meta name="description" content="#{h @description}" /> 
-    <title>#{h Into.trait[:title]}</title> 
-    <link rel="stylesheet" type="text/css" href="/css/default.css"> 
+    <title>#{h Into.trait[:title]}</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/text.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/grid.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen">
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="../../../css/ie6.css" media="screen" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="../../../css/ie.css" media="screen" /><![endif]-->
     <link rel="alternate" type="application/atom+xml" title="#{h Into.trait[:title]} - feed" href="/index.atom" /> 
     <link  href="//fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
-  </head> 
-  <body> 
-    <header> 
-    <h1><a href="/">#{h Into.trait[:title]}</a></h1> 
-    </header> 
+    <link href="//fonts.googleapis.com/css?family=Tangerine:regular,bold" rel="stylesheet" type="text/css" >
+  </head>
+  <body>
 
-    <section>
-      #@content
-    </section>
+    <header>
+      <h1><a href="/">#{h Into.trait[:title]}</a></h1>
+    </header>
 
-    <footer> 
-      &copy; #{Time.now.year} #{h Into.trait[:author]}
-    </footer> 
+    <div class="container_12">
+
+        <div class="grid_9">
+
+          <section>
+            #@content
+          </section>
+
+          <footer>
+            &copy; #{Time.now.year} #{h Into.trait[:author]}
+          </footer>
+
+        </div>
+
+        <div class="grid_3">
+
+          <div id="sidebar">
+            <h1>Twitterbox</h1>
+          </div>
+
+        </div>
+        <div class="clear"></div>
+
+    </div>
+
   </body> 
 </html> 

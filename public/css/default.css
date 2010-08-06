@@ -12,31 +12,56 @@ body {
 header {
   text-align: center;
   padding: 1em;
+  background: #fff;
+}
+
+body > header {
+  background: #fff url('/images/bg.jpg') no-repeat top left;
+  text-align: right;
+  height: 100px;
 }
 
 article {
   max-width: 40em;
   margin: auto;
+  display: block;
 }
 
 article p {
   padding: 0.5em;
+  line-height: 1.4em;
 }
 
 footer {
   padding: 1em;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-body > header > h1 > a {
-  white-space: pre;
+h1 > a, h2 > a {
   text-decoration: none;
+  color: #333;
 }
 
 body > header > h1 {
-  font-size: 1.0em;
+  font-size: 3.0em;
+  font-family: Tangerine, serif;
+  color: #fff;
 }
 
-a { color: #a33; }
-a:visited { color: #833; }
-a:hover { color: #833; }
+h2, h1 {
+  font-weight: normal;
+}
+
+a { color: #666; }
+a:visited { color: #999; }
+a:hover { color: #999; }
+
+#sidebar {
+  float: right;
+  min-height: 500px;
+  width: 200px;
+  padding: 1em;
+}
