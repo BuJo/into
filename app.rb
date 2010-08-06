@@ -81,7 +81,7 @@ module Into
     alias href slug
 
     def url
-      Into.trait[:url]
+      Into.trait[:url] + "/" + slug
     end
 
     def date
