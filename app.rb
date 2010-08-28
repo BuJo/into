@@ -4,6 +4,7 @@ require 'find'
 require 'nokogiri'
 require 'date'
 require 'time'
+require 'twitter_oauth'
 
 module Into
   extend Innate::Traited
@@ -17,6 +18,10 @@ module Into
     provide :atom, :engine => :Etanni, :type => 'application/xml'
 
     def index(slug = nil)
+      client = TwitterOAuth::Client.new
+
+      @mytweets = client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
+
       if article = Article[slug]
         render_view(:article, :article => article)
       else

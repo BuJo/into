@@ -16,8 +16,8 @@ header {
 }
 
 body > header {
-  background: #fff url('/images/bg.jpg') no-repeat top left;
-  text-align: right;
+  background: #fff url('/images/bg.jpg') repeat-x top left;
+  text-align: left;
   height: 100px;
 }
 
@@ -55,7 +55,7 @@ h2, h1 {
   font-weight: normal;
 }
 
-a { color: #666; }
+a { color: #666; text-decoration: none; }
 a:visited { color: #999; }
 a:hover { color: #999; }
 
@@ -64,4 +64,66 @@ a:hover { color: #999; }
   min-height: 500px;
   width: 200px;
   padding: 1em;
+}
+#sidebar ul {
+  list-style-image: url(/images/twitter.png);
+}
+#sidebar ul li {
+  margin-bottom: 1em;
+}
+#sidebar h3 {
+  font-size: 1.4em;
+}
+
+html { -webkit-font-smoothing: antialiased; }
+
+html { overflow-y: scroll; }
+
+/*
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none; }
+ 
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+ 
+  a:after { content: " (" attr(href) ")"; }
+ 
+  abbr:after { content: " (" attr(title) ")"; }
+   
+  .ir a:after { content: ""; }  /* Don't show links for images */
+   
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+   
+  img { page-break-inside: avoid; }
+ 
+  @page { margin: 0.5cm; }
+ 
+  p, h2, h3 { orphans: 3; widows: 3; }
+ 
+  h2, h3{ page-break-after: avoid; }
+}
+
+/*
+ * Media queries for responsive design
+ */
+ 
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+   
+}
+ 
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
+   
+}
+ 
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome) 
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+   
+   
+  /* Prevent iOS, WinMobile from adjusting font size */
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; }
 }

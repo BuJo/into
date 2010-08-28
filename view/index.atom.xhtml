@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>#{ Into.trait[:title] }</title>
   <id>#{ Into.trait[:url] }</id>
-  <updated>#{ Into::Article.first.date.iso8601 }</updated>
+  <updated>#{ Into::Article.first.date }</updated>
   <author>
     <name>#{h Into.trait[:author] }</name>
   </author>
@@ -12,8 +12,8 @@
       <title>#{ article[:title] }</title>
       <link href="#{ article.url }" rel="alternate"/>
       <id>#{ article.url }</id>
-      <published>#{ article.date.iso8601 }</published>
-      <updated>#{ article.date.iso8601 }</updated>
+      <published>#{ article.date }</published>
+      <updated>#{ article.date }</updated>
       <author>
         <name>#{h Into.trait[:author] }</name>
       </author>
