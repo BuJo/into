@@ -5,6 +5,7 @@ Into.trait(
   :title => 'MoxonoM',
   :date => lambda{|now| now.strftime('%a, %d. %b %Y') },
   :disqus => false,
+  :disqus_shortname => '',
   :ext => 'md',
   :url => 'http://manveru.heroku.com'
 )

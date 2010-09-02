@@ -1,5 +1,19 @@
 <section class="articles">
   <?r @articles.each do |article| ?>
-    #{render_view(:article, :article => article)}
+    <article class="post">
+      <header>
+        <h1>#{a article[:title], article.href}</h1>
+        <h2>#{h article[:description]}</h2>
+      </header>
+    
+      <section class="content">
+        #{article.to_html}
+      </section>
+    
+      <footer>
+        <time datetime="#{h article.datetime}" pubdate>#{h article.showtime}</time>
+        <a href="#{article.href}#disqus_thread">Comments</a>
+      </footer>
+    </article>
   <?r end ?>
 </section>

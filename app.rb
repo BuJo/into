@@ -23,7 +23,7 @@ module Into
       @mytweets = client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
 
       if article = Article[slug]
-        render_view(:article, :article => article)
+        render_view(:article, :article => article, :slug => slug)
       else
         render_view(:articles, :articles => Article.first(10))
       end
