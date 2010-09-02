@@ -151,4 +151,10 @@ html { overflow-y: scroll; }
     width: auto;
     display: block;
   }
+  
+  .container_12, .container_16 {
+    margin-left:0;
+    margin-right:0;
+    width: auto;
+  }
 }
