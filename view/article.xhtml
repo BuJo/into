@@ -12,8 +12,8 @@
     <time datetime="#{h @article.datetime}" pubdate>#{h @article.showtime}</time>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
+     var disqus_identifier = #{@slug};
       (function() {
-       var disqus_identifier = #{@slug};
        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
        dsq.src = 'http://buchagile.disqus.com/embed.js';
        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
