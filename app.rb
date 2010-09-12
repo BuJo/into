@@ -18,6 +18,8 @@ module Into
     provide :atom, :engine => :Etanni, :type => 'application/xml'
 
     def index(slug = nil)
+      response.headers['Cache-Control'] = 'public, max-age=300'
+
       client = TwitterOAuth::Client.new
 
       @mytweets = client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
