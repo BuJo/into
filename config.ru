@@ -14,7 +14,7 @@ Into.trait(
 Innate.start(:root => ::File.dirname(__FILE__), :started => true)
 
 use Rack::Static, :urls => [
-  '/css', '/js', '/images', '/favicon.ico', '/empty.txt', 'robots.txt'
+  '/css', '/js', '/images', '/favicon.ico', '/empty.txt', '/robots.txt'
 ], :root => 'public'
 
 run Innate
