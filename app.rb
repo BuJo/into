@@ -47,23 +47,26 @@ module Into
       find{|article| article.slug == slug }
     end
 
-    attr_reader :content, :path
+    attr_reader :path
 
     def initialize(path)
       all = File.read(path)
-      head, tail = all.split("\n\n", 2)
+      head, @body = all.split("\n\n", 2)
 
       @path = path
       @head = {}
-      @content = RDiscount.new(
-        tail,
-        :autolink, :safelink, :generate_toc, :smart
-      )
 
       head.each_line do |line|
         key, value = line.strip.split(/\s*:\s*/, 2)
         self[key] = value
       end
+    end
+
+    def content
+      @content ||= RDiscount.new(
+        @body,
+        :autolink, :safelink, :generate_toc, :smart
+      )
     end
 
     def to_html
