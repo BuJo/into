@@ -30,6 +30,10 @@ module Into
         render_view(:articles, :articles => Article.first(10))
       end
     end
+  private
+    def all_tags
+      @all_tags ||= Article.inject({}) {|h,a| a[:tags].split(/[^\w]+/).each {|t| h[t] ||= 0; h[t] += 1; } if a[:tags]; h }
+    end
   end
 
   class Article

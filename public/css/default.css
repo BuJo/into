@@ -87,6 +87,22 @@ blockquote {
   text-indent: 23px;
 }
 
+.cloud {
+	width: 95%;
+	margin: 20px auto;
+	font-family: 'Nobile', Arial, Verdana, Helvetica, sans-serif;
+	text-transform: lowercase;
+	text-align: center;
+	line-height: 1em;
+}
+.cloud a {
+	color: #999;
+}
+.cloud a:hover {
+	border: none;
+	color: #bbb;
+}
+
 a { color: #666; text-decoration: none; }
 a:visited { color: #999; }
 a:hover { color: #999; }
