@@ -23,18 +23,18 @@
 	{
 		// Copyright 2010 Buch, Jonathan
 	
-		var datatypes =	'uint8 uint16 uint32 uint64 int8 int16 int32 int64' +
-		                'float32 float64 complex64 complex128 byte uint' + 
+		var datatypes =	'uint8 uint16 uint32 uint64 int8 int16 int32 int64 ' +
+		                'float32 float64 complex64 complex128 byte uint ' +
 		                'int float complex uintptr ';
 
-		var keywords =	'break default func interface select' +
-                    'case defer go map struct' +
-                    'chan else goto package switch' +
-                    'const fallthrough if range type' +
-                    'continue for import return' +
+		var keywords =	'break default func interface select ' +
+                    'case defer go map struct ' +
+                    'chan else goto package switch ' +
+                    'const fallthrough if range type ' +
+                    'continue for import return ' +
                     'true false iota nil ';
 					
-		var functions =	'cap close closed cmplx copy imag len make' +
+		var functions =	'cap close closed cmplx copy imag len make ' +
                     'new panic print println real recover';
 
 		this.regexList = [
