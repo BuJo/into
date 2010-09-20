@@ -37,9 +37,11 @@ module Into
     end
 
     def mytweets
+      return @mytweets if @mytweets
+
       client = TwitterOAuth::Client.new
 
-      @mytweets ||= client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
+      @mytweets = client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
     end
   end
 
