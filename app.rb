@@ -27,9 +27,13 @@ module Into
       end
     end
 
+    def tags(tag)
+      render_view(:articles, :articles => Article.find_all {|a| a.tags.map {|x|x.downcase}.include?(tag.downcase) }.first(10))
+    end
+
   private
     def all_tags
-      @all_tags ||= Article.inject({}) {|h,a| a[:tags].split(/[^\w]+/).each {|t| h[t] ||= 0; h[t] += 1; } if a[:tags]; h }
+      @all_tags ||= Article.inject({}) {|h,a| a.tags.each {|t| h[t] ||= 0; h[t] += 1; }; h }
     end
 
     def mytweets
@@ -99,6 +103,10 @@ module Into
 
     def url
       Into.trait[:url] + "/" + slug
+    end
+
+    def tags
+      self[:tags].split(/[^\w]+/)
     end
 
     def date
