@@ -20,19 +20,22 @@ module Into
     def index(slug = nil)
       response.headers['Cache-Control'] = 'public, max-age=300'
 
-      client = TwitterOAuth::Client.new
-
-      @mytweets = client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
-
       if article = Article[slug]
         render_view(:article, :article => article, :slug => slug)
       else
         render_view(:articles, :articles => Article.first(10))
       end
     end
+
   private
     def all_tags
       @all_tags ||= Article.inject({}) {|h,a| a[:tags].split(/[^\w]+/).each {|t| h[t] ||= 0; h[t] += 1; } if a[:tags]; h }
+    end
+
+    def mytweets
+      client = TwitterOAuth::Client.new
+
+      @mytweets ||= client.user_timeline(:screen_name => "fabianb", :include_rts => true, :trim_user => false)
     end
   end
 
