@@ -33,7 +33,7 @@ module Into
 
   private
     def all_tags
-      @all_tags ||= Article.inject({}) {|h,a| a.tags.each {|t| h[t] ||= 0; h[t] += 1; }; h }
+      @all_tags ||= Article.inject({}) {|h,a| a.tags.each {|t| h[t] ||= 0; h[t] += a.wc; }; h }
     end
 
     def mytweets
@@ -109,6 +109,10 @@ module Into
 
     def tags
       self[:tags].split(/[^\w]+/)
+    end
+
+    def wc
+      @body.scan(/[\w-]+/).size
     end
 
     def date
