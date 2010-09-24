@@ -33,7 +33,7 @@ module Into
 
   private
     def all_tags
-      @all_tags ||= Article.inject({}) {|h,a| a.tags.each {|t| h[t] ||= 0; h[t] += a.wc; }; h }
+      Article.inject({}) {|h,a| a.tags.each {|t| h[t] ||= 0; h[t] += a.wc; }; h }
     end
 
     def mytweets
