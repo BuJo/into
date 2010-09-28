@@ -108,7 +108,7 @@ module Into
     end
 
     def tags
-      self[:tags].split(/[^\w]+/)
+      self[:tags] ? self[:tags].split(/[^\w#-]+/) : []
     end
 
     def wc
